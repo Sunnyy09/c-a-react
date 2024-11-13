@@ -19,7 +19,7 @@ function App() {
       }
       {/* <Card someObj={Obj} /> */}
       <Card userName="Sunny" paraText="Hello from React" />
-      <Card userName="john" paraText="lorem ko chalu karo" />
+      <Card userName="john" paraText="lorem ko lekar ayo" />
     </>
   );
 }
