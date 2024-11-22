@@ -1,22 +1,31 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
 
-function Github() {
-    const [data, setData] = useState([])
-    useEffect(() => {
-        fetch('https://api.github.com/users/hiteshchoudhary')
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            setData(data)
-        })
-    }, [])
-  return (
-    <div className='text-center m-5 bg-black p-4 text-white text-4xl'
-    >Github Followers: {data.followers}
-    <div className='text-center text-orange-800 text-4xl m-4'>Name: {data.name}</div>
-    </div>
-    
-  )
+export async function GithubInfo() {
+  const response = await fetch("https://api.github.com/users/Sunnyy09");
+  return response.json();
 }
 
-export default Github
+function Github() {
+  const data = useLoaderData();
+  // const [data, setData] = useState([]);
+  // useEffect(() => {
+  //   fetch("https://api.github.com/users/Sunnyy09").then((response) =>
+  //     response.json().then((data) => setData(data))
+  //   );
+  // }, []);
+
+  return (
+    <div className="text-center font-semibold m-4 flex place-items-center gap-5 flex-col bg-red-700 rounded text-white p-4 text-3xl">
+      Github Followers: {data.followers}
+      <img
+        className="rounded-full"
+        src={data.avatar_url}
+        alt="Git-Image"
+        width={300}
+      />
+    </div>
+  );
+}
+
+export default Github;
