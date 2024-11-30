@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTodo } from "../features/todo/todoSlice";
+import { addTodo, clearTodos } from "../features/todo/todoSlice";
 
 function AddTodo() {
   const [input, setInput] = useState("");
@@ -14,7 +14,7 @@ function AddTodo() {
 
   return (
     <form
-      onSubmit={addTodoHandler}
+      // onSubmit={addTodoHandler}
       className="w-full px-5 flex justify-center space-x-3 mt-10"
     >
       <input
@@ -26,9 +26,17 @@ function AddTodo() {
       />
       <button
         type="submit"
-        className="text-[#fff] font-semibold bg-[#828dff] border-0 py-2 px-4 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+        className="text-[#fff] font-semibold bg-[#828dff] border-0 py-2 px-2 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+        onClick={addTodoHandler}
       >
         Add Todo
+      </button>
+      <button
+        type="submit"
+        className="text-[#fff] font-semibold bg-[#828dff] border-0 py-2 px-2 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+        onClick={() => dispatch(clearTodos())}
+      >
+        Clear All
       </button>
     </form>
   );
