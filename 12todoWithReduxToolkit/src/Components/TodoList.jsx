@@ -31,7 +31,7 @@ function TodoList() {
 
   return (
     <>
-      <ul className="list-none w-full px-5 space-y-3 my-5">
+      <ul className="list-none w-full space-y-3 my-5">
         {todos.map((todo) => (
           <li
             className={`"mt-4 flex space-x-3 items-center bg-[#171c48] px-4 py-2 shadow-sm shadow-white/50 rounded-md ${

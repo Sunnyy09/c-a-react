@@ -15,28 +15,28 @@ function AddTodo() {
   return (
     <form
       // onSubmit={addTodoHandler}
-      className="w-full px-5 flex justify-center space-x-3 mt-10"
+      className="w-full flex items-center space-x-2 mt-10 px-5"
     >
       <input
         type="text"
-        className="w-1/2 bg-[#171c48] rounded border border-[#828dff] focus:border-[#828dff] focus:ring-2 focus:ring-[#828dff] text-base outline-none text-[#fff] py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+        className="w-full py-1.5 bg-[#171c48] rounded border border-[#828dff] focus:border-[#828dff] focus:ring-2 focus:ring-[#828dff] text-base outline-none text-[#fff] px-3 leading-8 transition-colors duration-200 ease-in-out"
         placeholder="Write your task"
         value={input}
         onChange={(e) => setInput(e.target.value)}
       />
       <button
         type="submit"
-        className="text-[#fff] font-semibold bg-[#828dff] border-0 py-2 px-2 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+        className="text-[#fff] font-semibold bg-[#828dff] border-0 py-1.5 px-3 focus:outline-none hover:bg-indigo-600 rounded text-2xl"
         onClick={addTodoHandler}
       >
-        Add Todo
+        <i class="fa-solid fa-plus"></i>
       </button>
       <button
         type="submit"
-        className="text-[#fff] font-semibold bg-[#828dff] border-0 py-2 px-2 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+        className="text-[#fff] font-semibold bg-[#828dff] border-0 py-1.5 px-3 focus:outline-none hover:bg-indigo-600 rounded text-2xl"
         onClick={() => dispatch(clearTodos())}
       >
-        Clear All
+        <i class="fa-solid fa-trash"></i>
       </button>
     </form>
   );
