@@ -91,6 +91,8 @@ export class DbService {
     }
   }
 
+  //file services
+
   async uploadFile(file) {
     try {
       return await this.bucket.createFile(
@@ -112,6 +114,10 @@ export class DbService {
       throw error;
       return false;
     }
+  }
+
+  getFilePreview(fileId) {
+    return this.bucket.getFilePreview(config.appwriteBucketId, fileId);
   }
 }
 
