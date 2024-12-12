@@ -5,14 +5,19 @@ import logout from "../../features/authSlice/authSlice";
 
 function LogoutBtn() {
   const dispatch = useDispatch();
-  const logouthandler = () => {
+  const logoutHandler = () => {
     authService.logout().then(() => {
       dispatch(logout());
     });
   };
 
   return (
-    <button className="inline-block bg-blue-100 rounded-full">Logout</button>
+    <button
+      className="inline-block bg-blue-100 rounded-full"
+      onClick={logoutHandler}
+    >
+      Logout
+    </button>
   );
 }
 
